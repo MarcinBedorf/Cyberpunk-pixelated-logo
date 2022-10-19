@@ -22,13 +22,12 @@ body {
 
 .controls {
     position: absolute;
-    top: 88%;
+    top: 86%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-
-    animation: 2.5s fadeIn;
-    animation-fill-mode: forwards;
+    animation: 4s fadeIn forwards;
+    opacity: 0;
     visibility: hidden;
 }
 
@@ -50,6 +49,7 @@ img {
     color: var(--black-color);
     clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
 }
+
 
 .btn__content {
     display: flex;
@@ -96,24 +96,77 @@ img {
     animation: glitch-animation 2s linear 0s infinite;
 }
 
+.btn--primary:active .btn__content {
+    color: yellow;
+    background-color: #fcf009cc;
+}
+
+.btn--secondary:active .btn__content {
+    color: pink;
+    background-color: #ff003ccc;
+}
+
+.no-signal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 160px;
+    padding: 25px 0 8px 0;
+    background-color: rgb(137, 137, 137);
+    border: 3px solid rgb(177, 177, 177);
+    visibility: hidden;
+}
+
+.inner-box {
+    height: 100%;
+    padding: 2px;
+    background-color: #333;
+    border: 2px solid rgb(34, 34, 34);
+    font-family: Tomorrow, sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--blue-color);
+}
+
+.blink {
+    animation: blinking-underscore 1s linear infinite;
+}
 
 @keyframes fadeIn {
-    60% {
+
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    50% {
+        opacity: 0;
         visibility: hidden;
     }
 
     80% {
-        visibility: visible;
-        opacity: 0.6;
-    }
-
-    90% {
-        visibility: visible;
         opacity: 0.8;
+        visibility: visible;
     }
 
     100% {
+        opacity: 1;
         visibility: visible;
+    }
+}
+
+@keyframes blinking-underscore {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
         opacity: 1;
     }
 }

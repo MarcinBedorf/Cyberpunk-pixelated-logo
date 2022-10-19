@@ -49,6 +49,10 @@ window.addEventListener('load', function () {
             this.x -= Math.random();
             this.y /= Math.random() * this.y;
             this.ease = 0.05;
+
+            // this.x -= Math.random();
+            // this.y /= Math.random() * this.y;
+            // this.ease = 0.02;
         }
     }
 
